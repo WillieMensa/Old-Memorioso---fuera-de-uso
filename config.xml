@@ -7,10 +7,10 @@
  <name>MEMORIOSO</name>
 
  <description>
- 		Memorioso es un juego que desaf+¡a tu concentraci+¦n y memoria. 
-		Existen diferentes grupos de im+ígenes. Tu eliges el grupo dentro del cual habr+í pares de im+ígenes iguales que debes detectar. 
-		Existen varios niveles de dificultad dados por la cantidad de im+ígenes que se presentan.
-		La mec+ínica del juego es simple, sin embargo requiere memoria para facilitar la ubicaci+¦n adecuada de los pares de im+ígenes.
+ 		Memorioso es un juego que desafia tu concentracion y memoria. 
+		Existen diferentes grupos de imagenes. Tu eliges el grupo dentro del cual habra pares de imagenes iguales que debes detectar. 
+		Existen varios niveles de dificultad dados por la cantidad de imagenes que se presentan.
+		La mecanica del juego es simple, sin embargo requiere memoria para facilitar la ubicacion adecuada de los pares de imagenes.
  </description>
 
  <author href="http://www.ingverger.com.ar" email="ingverger@gmail.com">
@@ -29,4 +29,3 @@
  </platform>
 
 </widget>
-
