@@ -22,7 +22,6 @@
 	</author>
 
 	<preference name="android-targetSdkVersion"  value="26" /> 
-
 	<preference name="orientation"	value="landscape" />        <!-- all: default means both landscape and portrait are enabled -->
 
 	<content src="index.html" />
@@ -30,7 +29,7 @@
 
     <platform name="android">
         <allow-intent href="market:*" />
-		<icon   src="icon.png" />
+	<icon   src="icon.png" />
     </platform>
 
 </widget>
