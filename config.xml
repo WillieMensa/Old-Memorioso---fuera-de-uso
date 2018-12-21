@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <widget
-    id			= "ar.com.ingverger.memorioso"
-	versionCode = "10401"
-    version		= "1.4.1" >
+ id = "ar.com.ingverger.memorioso"
+ versionCode = "10401"
+ version  = "1.4.1" >
 
  <name>MEMORIOSO</name>
 
-	<description>
-		Memorioso es un juego que desafía tu concentración y memoria. 
-		Existen diferentes grupos de imágenes. Tu eliges el grupo dentro del cual habrá pares de imágenes iguales que debes detectar. 
-		Existen varios niveles de dificultad dados por la cantidad de imágenes que se presentan.
-		La mecánica del juego es simple, sin embargo requiere memoria para facilitar la ubicación adecuada de los pares de imágenes.
-	</description>
+ <description>
+  Memorioso es un juego que desafía tu concentración y memoria. 
+  Existen diferentes grupos de imágenes. Tu eliges el grupo dentro del cual habrá pares de imágenes iguales que debes detectar. 
+  Existen varios niveles de dificultad dados por la cantidad de imágenes que se presentan.
+  La mecánica del juego es simple, sin embargo requiere memoria para facilitar la ubicación adecuada de los pares de imágenes.
+ </description>
 
-	<author href="http://www.ingverger.com.ar" email="ingverger@gmail.com">
-		Guillermo Verger
-	</author>
+ <author href="http://www.ingverger.com.ar" email="ingverger@gmail.com">
+  Guillermo Verger
+ </author>
 
-	<preference name="android-targetSdkVersion"  value="26" /> 
-	<preference name="orientation"	value="landscape" />        <!-- all: default means both landscape and portrait are enabled -->
+ <preference name="android-targetSdkVersion"  value="26" /> 
+ <preference name="orientation" value="landscape" />  <!-- all: default means both landscape and portrait are enabled -->
 
-	<content src="index.html" />
-	<access origin="*" />
+ <content src="index.html" />
+ <access origin="*" />
 
-    <platform name="android">
-        <allow-intent href="market:*" />
-	<icon   src="icon.png" />
-    </platform>
+ <platform name="android">
+  <allow-intent href="market:*" />
+ <icon   src="icon.png" />
+ </platform>
 
 </widget>
+
