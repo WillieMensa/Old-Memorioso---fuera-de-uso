@@ -10,10 +10,6 @@ There are different groups of images. You choose the group within which there wi
 There are several levels of difficulty given by the number of images presented.
 The mechanics of the game is simple, however it requires memory to facilitate the proper placement of pairs of images.
 
-Existen diferentes grupos de imágenes. Tu eliges el grupo dentro del cual habrá pares de imágenes iguales que debes detectar. 
-Existen varios niveles de dificultad dados por la cantidad de imágenes que se presentan.
-La mecánica del juego es simple, sin embargo requiere memoria para facilitar la ubicación adecuada de los pares de imágenes.
-
 ### Requirements
 Requires memory and attention.
 
@@ -28,7 +24,7 @@ Games, memory, concentration, logic, entertainment.
 
 A good starting point declaration might be:
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
 
 For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
 
@@ -57,8 +53,11 @@ MEMORIOSO es un juego de concentracion y memoria.  Una oportunidad de ejercicio 
 
 #### Descripción breve
 Un juego de lógica, aritmética, ejercicio mental y diversión al mismo tiempo.
-### ¿En que consiste?
 
+### ¿En que consiste?
+Existen diferentes grupos de imágenes. Tu eliges el grupo dentro del cual habrá pares de imágenes iguales que debes detectar. 
+Existen varios niveles de dificultad dados por la cantidad de imágenes que se presentan.
+La mecánica del juego es simple, sin embargo requiere memoria para facilitar la ubicación adecuada de los pares de imágenes.
 
 ### Requerimientos
 Requiere del ejercicio de la lógica y un mínimo conocimiento de aritmética para ser resuelto: sumar.

@@ -28,7 +28,7 @@ var	FILA_BOTONES = 50,
 	RENDERER_W = 1000,
 	RENDERER_H = 600,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
-	VERSION	= "0.5.0",			//	version inicial
+	VERSION	= "1.4.1",			//	version inicial
 	FONDO_AYUDA = 0x008cff,
 	DEBUG = false;
 	//	DEBUG = true;
@@ -78,6 +78,7 @@ let	BotonAtras = undefined,
 	BotonAyuda = undefined,
 	BotonJugar = undefined,
 	BotonAcercaDe = undefined,
+	BotonMenu = undefined,
 	Crono = undefined,
 	start = undefined,
 	elapsed = undefined,
@@ -103,7 +104,10 @@ let firstTile=null,						// primera pieza elegida por el jugador
 
 function setup() {
 
-	//	console.log( "inicio setup" );
+	if (DEBUG)
+	{
+		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
+	}
 
 	//Get a reference to the texture atlas id's
 	//	Create an alias for the texture atlas frame ids
@@ -163,23 +167,11 @@ function setup() {
 
 	resize();		//	para refresca la pagina
 
-	//	var	MessageFin = new PIXI.Text( "Bien resuelto!\nFelicitaciones!", 
-	//		{ fontFamily: "Luckiest Guy",	fontSize: "32px", fill: "#600" });
-	//		MessageFin.x = ( RENDERER_W - MessageFin.width ) / 2;
-	//		MessageFin.y = ( RENDERER_H - MessageFin.height ) / 2;
-	//	EscenaFinJuego.addChild(MessageFin);
-	//	EscenaFinJuego.addChild(BotonJugar);
-	//	EscenaFinJuego.addChild(BotonAtras);
-
 	if (DEBUG)
 	{
-		//	console.log("EscenaFinJuego: " + EscenaFinJuego.children );
-		//	console.log("EscenaFinJuego.children.length: " + EscenaFinJuego.children.length );
-		//	console.log("EscenaFinJuego.children.name: " + EscenaFinJuego.children.name );
-		//	console.log("EscenaFinJuego.getChildAt(1): " + EscenaFinJuego.getChildAt(1) );
-		//	console.log("EscenaFinJuego: " + recorrerObjeto(EscenaFinJuego.getChildAt(1)) )
+		console.log("Pantalla: " + EscenarioGral.width + ", " + EscenarioGral.height );
 	}
-	
+
 	//Start the game loop
 	gameLoop();
 }
@@ -223,9 +215,9 @@ function PantallaInicio() {
 
 	const style = new PIXI.TextStyle({
 		fill: "#040",
-		fontFamily: "Luckiest Guy",
-		fontSize: 128,
-		//	fontWeight: "bold",
+	    fontFamily: "Impact",		//	    fontFamily: "Comic Sans MS",
+		fontSize: 96,
+		fontWeight: "bolder",
 		padding: 4,
 	});
 
@@ -244,12 +236,6 @@ function PantallaInicio() {
 		var count = 0;
 		PIXI.ticker.shared.add(function() {
 			count += 0.03;
-			//	inflar y desinflar el logo
-			//	img_tierra.scale.set(1 + Math.cos(count) * 0.2);
-			//	oscilar horizontal y verticalmente
-			//	img_tierra.x = RENDERER_W * ( 0.5 + Math.sin(count) * 0.3);
-			//	img_tierra.y = RENDERER_H * ( 0.6 + Math.cos(count) * 0.1);
-	
 			txtTitulo.rotation = ( -0.0 + Math.cos(count) * 0.2);
 
 		});
@@ -278,11 +264,11 @@ function HaceBotones() {
 	const style = new PIXI.TextStyle({
 		fillGradientStops: [ 0,100 ],
 		fill: "green",
-		fontFamily: "Luckiest Guy",
+		fontFamily: "Impact",
 		fontSize: 32,
 		fontStyle: "italic",
-		fontWeight: "bolder",
-		padding: 4,
+		fontWeight: "bold",
+		padding: 8,
 	});
 
 	//	-------------------------------------------------------------	
@@ -333,13 +319,26 @@ function HaceBotones() {
 	BotonAtras = new PIXI.Text('Volver', style);
 	BotonAtras.anchor.set(0.0);
 	BotonAtras.x = FILA_BOTONES;								// Set the initial position
-	BotonAtras.y = 520;	
+	BotonAtras.y = 450;	
 	BotonAtras.interactive = true;					// Opt-in to interactivity
 	BotonAtras.buttonMode = true;					// Shows hand cursor
 	// Pointers normalize touch and mouse
 	BotonAtras.on('pointerdown', Menu );
 	BotonAtras.on('click', Menu );
 	BotonAtras.on('tap', Menu );
+	
+	//	-------------------------------------------------------------
+	//	Preparacion otro botonMenu
+	BotonMenu = new PIXI.Text('Volver', style);
+	BotonMenu.anchor.set(0.0);
+	BotonMenu.x = FILA_BOTONES;								// Set the initial position
+	BotonMenu.y = 420;	
+	BotonMenu.interactive = true;					// Opt-in to interactivity
+	BotonMenu.buttonMode = true;					// Shows hand cursor
+	// Pointers normalize touch and mouse
+	BotonMenu.on('pointerdown', Menu );
+	BotonMenu.on('click', Menu );
+	BotonMenu.on('tap', Menu );
 	
 }
 
@@ -351,23 +350,30 @@ function PantallaAyuda() {
 	// draw a rounded rectangle
 	graphics.lineStyle(4, 0x332211, 0.95)
 	graphics.beginFill( FONDO_AYUDA, 0.95);
-	graphics.drawRoundedRect(40, 40, RENDERER_W-80, RENDERER_H-140 );
+	graphics.drawRoundedRect(40, 40, RENDERER_W-80, RENDERER_H-200 );
 	graphics.endFill();
 
 	EscenaDeAyudas.addChild(graphics);
 
-	var richText = new PIXI.Text('¿Qué es?\n' +
-		'MEMORIOSO es un juego de concentraciÓn y memoria.\n' + 
-		'¿En que consiste?\n' + 
+	const style = new PIXI.TextStyle({
+		fill: "#ffffff",
+		fontFamily: "Comic Sans MS",
+		fontSize: 24,
+		fontStyle: "italic",
+		fontWeight: "bold"
+	});
+	const richText = new PIXI.Text('Que es?\n' +
+		'MEMORIOSO es un juego de concentracion y memoria.\n' + 
+		'En que consiste?\n' + 
 		'Hay un cojunto de fichas o cartas, cada una con una imagen, \n' + 
 		'colocadas de forma tal que no se ve su anverso.\n' + 
 		'Hay dos fichas de cada imagen. El juego consiste en encontrar\n' +
 		'las parejas de imágenes iguales.\n' + 
-		'Al pulsar sobre una imagen, ésta se da vuelta.\n' + 
+		'Al pulsar sobre una imagen, esta se da vuelta.\n' + 
 		'Se eligen dos fichas consecutivas. Si resultan ser iguales se\n' +
-		'retiran del tablero. Si son diferentes vuelven a la posición original.\n' + 
+		'retiran del tablero. Si son diferentes vuelven a la posicion original.\n' + 
 		'El juego finaliza cuando se han encontrado todas las parejas.', 
-		{ fontFamily: "Sriracha",	fontSize: "28px", fill: "0xffffcc"  } );
+		style );
 
 	richText.x = 60;
 	richText.y = 60;
@@ -526,8 +532,10 @@ function end() {
 	BotonJugar.visible =true;
 	BotonJugar.alpha=1;
 
-	BotonAyuda.visible = true;
-	BotonAcercaDe.visible = true;
+	EscenaFinJuego.addChild(BotonMenu);
+
+	//	BotonAyuda.visible = true;
+	//	BotonAcercaDe.visible = true;
 
 	state = end;
 	
@@ -547,18 +555,24 @@ function PantallaAcercaDe() {
 	// draw a rounded rectangle
 	graphics.lineStyle(4, 0x332211, 0.95)
 	graphics.beginFill( FONDO_AYUDA, 0.95);
-	graphics.drawRoundedRect(40, 40, RENDERER_W-80, RENDERER_H-140 );
+	graphics.drawRoundedRect(40, 40, RENDERER_W-80, RENDERER_H-200 );
 	graphics.endFill();
 
 	EscenaAcercaDe.addChild(graphics);
 
-	var richText = new PIXI.Text('Acerca de MEMORIOSO version ' + VERSION + '\n' +
-		'Es un juego para ejercitar concentración y memoria \n' +
+	const style = new PIXI.TextStyle({
+		fill: "white",
+		fontStyle: "italic",
+		fontFamily: "Comic Sans MS",
+		fontSize: 32,
+		fontWeight: "bold"
+	});
+	const richText = new PIXI.Text('Acerca de MEMORIOSO version ' + VERSION + '\n' +
+		'Es un juego para ejercitar concentracion y memoria \n' +
 		'desarrollado por Willie Verger Juegos de Ingenio\n\n' +
 		'Soporte: info@ingverger.com.ar\n' +
 		'Web: ingverger.com.ar\n' +
-		'\n' , { fontFamily: "Sriracha",	fontSize: "32px", fill: "0xffffcc"  } );
-
+		'\n', style);
 	richText.x = 60;
 	richText.y = 60;
 	EscenaAcercaDe.addChild(richText);
@@ -644,14 +658,19 @@ function play() {
 
 function PantallaFinJuego() {
 
-	var	MessageFin = new PIXI.Text( "Bien resuelto!\nFelicitaciones!", 
-		{ fontFamily: "Luckiest Guy",	fontSize: "48px", fill: "#600" });
-		MessageFin.x = ( RENDERER_W - MessageFin.width ) / 2;
-		MessageFin.y = ( RENDERER_H - MessageFin.height ) / 2;
+	const style = new PIXI.TextStyle({
+		fill: "#880000",
+		fontFamily: "Comic Sans MS",
+		fontSize: 48,
+		fontWeight: "bolder"
+	});
+
+	const	MessageFin = new PIXI.Text( "Bien resuelto!\nFelicitaciones!", style);
+	MessageFin.x = ( RENDERER_W - MessageFin.width ) / 2;
+	MessageFin.y = ( RENDERER_H - MessageFin.height ) / 2;
 	EscenaFinJuego.addChild(MessageFin);
 	EscenaFinJuego.addChild(BotonJugar);
 	EscenaFinJuego.addChild(BotonAtras);
-
 
 }
 
@@ -771,16 +790,16 @@ function onTilesLoaded(){
 
 			tile.buttonMode=true;
 			tile.interactive = true;
-			tile.scale.set(0.35);
+			tile.scale.set(0.3);
 			// is the tile selected?
 			tile.isSelected=false;
 			// set a tile value
 			tile.theVal=chosenTiles[i*nFil+j]
 			// place the tile
 			//	tile.position.x = 7+i*100;
-			tile.position.x = offset_X + i*100;
+			tile.position.x = offset_X + i*90;
 			//	tile.position.y = 7+  j*100;
-			tile.position.y = offset_Y +  j*100;
+			tile.position.y = offset_Y +  j*90;
 
 			// paint tile black
 			tile.tint = 0x000000;
