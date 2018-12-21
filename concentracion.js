@@ -201,7 +201,8 @@ function resize() {
                    window.innerHeight/RENDERER_H);
 
   // Scale the view appropriately to fill that dimension
-  EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
+  //	EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
+  EscenarioGral.scale.x = EscenarioGral.scale.y = 0.8 * ratio;
 
   // Update the renderer dimensions
   renderer.resize(Math.ceil(RENDERER_W * ratio),
