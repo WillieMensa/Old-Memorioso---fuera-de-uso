@@ -1,19 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <widget
-    id          = "ar.com.ingverger.memorioso"
-	versionCode = "10301"
-    version     = "1.3.1" >
+ id = "ar.com.ingverger.memorioso"
+ versionCode = "10301"
+ version = "1.3.1" >
 
-	<name>MEMORIOSO</name>
+ <name>MEMORIOSO</name>
 
   <description>
 		Memorioso is a game that challenges your concentration and memory. 
 		There are different groups of images. You choose the group within which there will be pairs of identical images that you should detect.
 		There are several levels of difficulty given by the number of images presented.
 		The mechanics of the game is simple, however it requires memory to facilitate the proper placement of pairs of images.
-		Memorioso es un juego que desafía tu concentración y memoria. 
-		Existen diferentes grupos de imágenes. Tu eliges el grupo dentro del cual habrá pares de imágenes iguales que debes detectar. 
-		Existen varios niveles de dificultad dados por la cantidad de imágenes que se presentan.
-		La mecánica del juego es simple, sin embargo requiere memoria para facilitar la ubicación adecuada de los pares de imágenes.
+		Memorioso es un juego que desafÃ­a tu concentraciÃ³n y memoria. 
+		Existen diferentes grupos de imÃ¡genes. Tu eliges el grupo dentro del cual habrÃ¡ pares de imÃ¡genes iguales que debes detectar. 
+		Existen varios niveles de dificultad dados por la cantidad de imÃ¡genes que se presentan.
+		La mecÃ¡nica del juego es simple, sin embargo requiere memoria para facilitar la ubicaciÃ³n adecuada de los pares de imÃ¡genes.
   </description>
 
 	<author href="http://www.ingverger.com.ar" email="ingverger@gmail.com">
