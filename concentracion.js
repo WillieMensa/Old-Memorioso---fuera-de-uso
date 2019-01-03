@@ -34,8 +34,8 @@ var	FILA_BOTONES = 50,
 	FONT_NIVEL2 = "Luckiest Guy",	//	"Bangers",	//	"Sigmar One",
 	FONT_NIVEL3 = "Sriracha",	//	FONT_NIVEL2 = "Sigmar One",
 	COLOR_BOTON = 0x006600,
-	//	DEBUG = false;
-	DEBUG = true;
+	DEBUG = false;
+	//	DEBUG = true;
 
 
 
@@ -190,9 +190,9 @@ function preloaderCheck() {
 //	======================================================================
 function setup() {
 
-	if (DEBUG) {
-		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
-	}
+	//	if (DEBUG) {
+	//		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
+	//	}
 
 	//Get a reference to the texture atlas id's
 	//	Create an alias for the texture atlas frame ids
@@ -249,9 +249,9 @@ function setup() {
 	state = Menu;
 
 	//	Una grilla para ubicarnos en el canvas
-	if (DEBUG) {
+	//	if (DEBUG) {
 		DibujaGrilla()
-	}
+	//	}
 
 	resize();		//	para refresca la pagina
 
@@ -469,9 +469,7 @@ function HaceBotones() {
 	}
 	*/
 
-	if (DEBUG) {
-		console.log(" mousedown: " );
-	}
+	//	if (DEBUG) { console.log(" mousedown: " ); }
 			
 }
 
