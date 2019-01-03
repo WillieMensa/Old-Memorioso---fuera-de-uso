@@ -5,6 +5,7 @@ npm-debug.log
 
 # project files
 .project
+*.keystore
 
 # project ignores
 !.gitkeep

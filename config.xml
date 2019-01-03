@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <widget
  id = "ar.com.ingverger.memorioso"
- versionCode = "10401"
- version  = "1.4.1" >
+ versionCode = "20000"
+ version  = "2.0.0" >
 
  <name>MEMORIOSO</name>
 
  <description>
  		Memorioso es un juego que desafia tu concentracion y memoria. 
-		Existen diferentes grupos de imagenes. Tu eliges el grupo dentro del cual habra pares de imagenes iguales que debes detectar. 
+		Hay un conjunto de imagenes . 
+		Sobre el tablero se colocan pares de imagenes iguales. El juego consiste en detectar esos pares. Cuando se lo consigue las imagenes se retiran del tablero. El juego finaliza una vez que se han detectado todos los pares.		
 		Existen varios niveles de dificultad dados por la cantidad de imagenes que se presentan.
 		La mecanica del juego es simple, sin embargo requiere memoria para facilitar la ubicacion adecuada de los pares de imagenes.
  </description>
