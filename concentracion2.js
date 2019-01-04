@@ -30,9 +30,14 @@ var	FILA_BOTONES = 50,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
 	VERSION	= "2.0.0",			//	version inicial
 	FONDO_AYUDA = 0x008cff,
-	FONT_NIVEL1 = "Luckiest Guy",	//	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
-	FONT_NIVEL2 = "Luckiest Guy",	//	"Bangers",	//	"Sigmar One",
+	//	FONT_NIVEL1 = "TitanOne",	//	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
+	//	FONT_NIVEL2 = "Luckiest Guy",	//	"Bangers",	//	"Sigmar One",
+	//	FONT_NIVEL3 = "Sriracha",	//	FONT_NIVEL2 = "Sigmar One",
+
+	FONT_NIVEL1 = "luckiestguy",	//	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
+	FONT_NIVEL2 = "Bangers",	//	"Bangers",	//	"Sigmar One",
 	FONT_NIVEL3 = "Sriracha",	//	FONT_NIVEL2 = "Sigmar One",
+
 	COLOR_BOTON = 0x006600,
 	DEBUG = false;
 	//	DEBUG = true;
@@ -147,15 +152,22 @@ const	aNivDif = [
 var fonts_ready = false;
 var assets_ready = false;
 
-WebFont.load({
-	google: {
-		families: [ 'Bangers', 'Titan One', 'Sigmar One', 'Sriracha', 'Luckiest Guy' ]
-	},
-	active: function() {
-		fonts_ready = true;
-        preloaderCheck();
-    }
-  });
+//	WebFontConfig = {
+//	  custom: {
+//	    families: ['luckiestguy', 'sriracha', 'titanone'],
+//	    urls: ['fonts.css']
+//	  }
+//	};
+
+//	WebFont.load({
+//		google: {
+//			families: [ 'Bangers', 'Titan One', 'Sigmar One', 'Sriracha', 'Luckiest Guy' ]
+//		},
+//		active: function() {
+//			fonts_ready = true;
+//	        preloaderCheck();
+//	    }
+//	  });
 
 /*
 setTimeout(function()
@@ -165,14 +177,10 @@ setTimeout(function()
 */
 
 //load resources
-loader
+//load resources; a JSON file and run the `setup` function when it's done 
+PIXI.loader
 	.add("memorioso2.json")		//	PIXI.loader.add("assets/spritesheet.json").load(setup);
-	.load(function() {
-		assets_ready = true;
-		preloaderCheck();
-    });
-	//	.load(loader, resources)
-	//	.load(setup);
+	.load(setup);
 
 
 //	PIXI.loader
@@ -182,10 +190,14 @@ loader
 //	        preloaderCheck();
 //	    });
 
-function preloaderCheck() {
-	if (fonts_ready && assets_ready)
-		setup();
-}
+//	function preloaderCheck() {
+//		if (DEBUG)	{
+//			console.log("preloader check");
+//		}
+//	
+//		if (fonts_ready && assets_ready)
+//			setup();
+//	}
 
 //	======================================================================
 function setup() {
