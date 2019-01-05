@@ -34,9 +34,9 @@ var	FILA_BOTONES = 50,
 	//	FONT_NIVEL2 = "Luckiest Guy",	//	"Bangers",	//	"Sigmar One",
 	//	FONT_NIVEL3 = "Sriracha",	//	FONT_NIVEL2 = "Sigmar One",
 
-	FONT_NIVEL1 = "luckiestguy",	//	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
-	FONT_NIVEL2 = "Bangers",	//	"Bangers",	//	"Sigmar One",
-	FONT_NIVEL3 = "Sriracha",	//	FONT_NIVEL2 = "Sigmar One",
+	FONT_NIVEL1 = "luckiest_guyregular"	//	"sigmar_oneregular",	//	titulo:	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
+	FONT_NIVEL2 = "bangersregular",	//	botones: "Bangers",	//	"Sigmar One",
+	FONT_NIVEL3 = "sriracharegular",		//	textos:
 
 	COLOR_BOTON = 0x006600,
 	DEBUG = false;
@@ -206,6 +206,26 @@ function setup() {
 	//		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
 	//	}
 
+	//	let fontFaceSet = document.fonts;
+	//	console.log( "fontFaceSet : " + fontFaceSet );
+	//	let result = aFontFaceSet.load("luckiest_guyregular");
+
+	//	document.fonts.load("luckiest_guyregular")
+    //	          .then(drawStuff, handleError);
+
+	//	var lFontCargado = document.fonts.check( "luckiest_guyregular" ); // returns true if the font courier is available at 12px
+
+	//	var lFontCargado = aFontFaceSet.check( "luckiestguy" );	
+	//	document.fonts.check( luckiestguy ); // returns true if the font courier is available at 12px
+
+	//	console.log("lFontCargado: " + 	lFontCargado );
+
+	//	https://drafts.csswg.org/css-font-loading/#font-load-event-examples
+	//	document.fonts.ready.then(function() {
+	//	  var content = document.getElementById("content");
+	//	  content.style.visibility = "visible";
+	//	});
+
 	//Get a reference to the texture atlas id's
 	//	Create an alias for the texture atlas frame ids
 	id = resources["memorioso2.json"].textures;
@@ -244,6 +264,13 @@ function setup() {
 	//	Crear escenario seleccion dificultad
 	//	EscenaDificultad = new PIXI.Container();
 	//	EscenarioGral.addChild(EscenaDificultad);
+
+	//	antes de dibujar verificamos carga de fonts
+	//	let fontFaceSet = document.fonts;
+	document.fonts.ready.then(function() {
+		  // Any operation that needs to be done only after all the fonts
+		  // have finished loading can go here.
+	});
 
 	//	prepara los botones de la aplicacion
 	HaceBotones()

@@ -30,9 +30,9 @@ var	FILA_BOTONES = 50,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
 	VERSION	= "2.0.0",			//	version inicial
 	FONDO_AYUDA = 0x008cff,
-	FONT_NIVEL1 = "Luckiest Guy",	//	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
-	FONT_NIVEL2 = "Luckiest Guy",	//	"Bangers",	//	"Sigmar One",
-	FONT_NIVEL3 = "Sriracha",	//	FONT_NIVEL2 = "Sigmar One",
+	FONT_NIVEL1 = "luckiest_guyregular",	//	titulo:	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
+	FONT_NIVEL2 = "bangersregular",	//	botones: "Bangers",	//	"Sigmar One",
+	FONT_NIVEL3 = "sriracharegular",		//	textos:
 	COLOR_BOTON = 0x006600,
 	DEBUG = false;
 	//	DEBUG = true;
