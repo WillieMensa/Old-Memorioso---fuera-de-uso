@@ -25,7 +25,9 @@ let Container = PIXI.Container,
 //	-------------------------
 var	FILA_BOTONES = 50,
 	LINEA_BOTONES = 470,
-	RENDERER_W = 1000,
+	//	RENDERER_W = 1200,			//	850,			//	1000,
+	//	RENDERER_H = 700,			//	450,			//	600,
+	RENDERER_W = 900,			//	1000,
 	RENDERER_H = 600,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
 	VERSION	= "2.0.0",			//	version inicial
@@ -39,8 +41,8 @@ var	FILA_BOTONES = 50,
 	FONT_NIVEL3 = "sriracharegular",		//	textos:
 
 	COLOR_BOTON = 0x006600,
-	DEBUG = false;
-	//	DEBUG = true;
+	//	DEBUG = false;
+	DEBUG = true;
 
 
 
@@ -58,6 +60,7 @@ let rendererOptions = {
 
 //	Create the renderer
 let renderer = autoDetectRenderer( RENDERER_W, RENDERER_H, rendererOptions );
+//	let renderer = autoDetectRenderer( rendererOptions );
 
 // Put the renderer on screen in the corner
 renderer.view.style.position = "absolute";
@@ -202,9 +205,9 @@ PIXI.loader
 //	======================================================================
 function setup() {
 
-	//	if (DEBUG) {
-	//		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
-	//	}
+	if (DEBUG) {
+		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
+	}
 
 	//	let fontFaceSet = document.fonts;
 	//	console.log( "fontFaceSet : " + fontFaceSet );
@@ -337,7 +340,7 @@ function PantallaInicio() {
 	EscenaMenuInic.visible = true;
 
 	const style = new PIXI.TextStyle({
-		fill: "#040",					    //	
+		fill: 0x9900cc,						//	"#040",					    //	
 		fontFamily: FONT_NIVEL1,			//	fontFamily: 'Titan One',
 		fontSize: 96,
 		fontWeight: "bold",
@@ -639,36 +642,55 @@ function Ayuda() {
 }
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////
 //	solamente para depurar
 function DibujaGrilla() {
 
+	const style = new PIXI.TextStyle({
+		fontFamily: FONT_NIVEL3,		//	fontFamily: "Sriracha",
+		fontSize: 10,
+		//	fontStyle: "normal",
+		//	fontWeight: "400"
+	});
+
 	var posX=50, posY=50;
 	var line = new PIXI.Graphics();
-	//	var rectang = new PIXI.Graphics();
 
 	line.lineStyle(1, "#bbbbbbb", 0.5 )
 
 	//	lineas horizontales
-	while (posY<=RENDERER_H)
+	//	while (posY<=RENDERER_H)
+	while (posY<= RENDERER_H + 50)
 	{
 		line.moveTo(0, posY);
-		line.lineTo(RENDERER_W, posY);
+		line.lineTo(RENDERER_W+200, posY);
 		//	line.x = 0;
 		//	line.y = ( 50 * i ) + 25 ;
 		EscenarioGral.addChild(line);
+
+		var numText = new PIXI.Text(posY, style );
+		numText.x = 25;
+		numText.y = posY;
+		EscenarioGral.addChild(numText);
 
 		posY = posY+50;
 	}
 
 	//	lineas verticales
-	while (posX<=RENDERER_W)
+	while (posX<= RENDERER_W + 50)
 	{
 		line.moveTo(posX, 0);
 		line.lineTo(posX, RENDERER_H);
 		//	line.x = ( 50 * i ) + 25;
 		//	line.y = 0;
 		EscenarioGral.addChild(line);
+
+		var numText = new PIXI.Text(posX, style );
+		//	numText.text = posX;
+		numText.x = posX;
+		numText.y = 50;
+		EscenarioGral.addChild(numText);
 
 		posX = posX+50;
 	}
@@ -765,7 +787,7 @@ function haceSelectorDifi(){
 	const	y0 = 180;
 	const	anchoCaja = 160,
 		altoCaja = 100,
-		COLOR_CAJA = 0x99bbff,
+		COLOR_CAJA = 0x9900ff,				//	0x99bbff,
 		COLOR_FLECHA = 0x990033;
 
 	//	números indicadores del nivel actual
@@ -779,8 +801,8 @@ function haceSelectorDifi(){
 
 	// draw a rounded rectangle
 	var graphics = new PIXI.Graphics();
-	graphics.lineStyle(1, 0xcc9900, 1);
-	graphics.beginFill(0xcc9900, 0.4);
+	//	graphics.lineStyle(1, 0xcc9900, 1);
+	graphics.beginFill(COLOR_CAJA, 0.3);
 	graphics.drawRoundedRect(x0, y0, anchoCaja, altoCaja, 10);
 	graphics.endFill();
 	EscenaMenuInic.addChild(graphics);

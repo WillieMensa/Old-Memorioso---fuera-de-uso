@@ -25,8 +25,8 @@ let Container = PIXI.Container,
 //	-------------------------
 var	FILA_BOTONES = 50,
 	LINEA_BOTONES = 470,
-	RENDERER_W = 1000,
-	RENDERER_H = 600,
+	RENDERER_W = 1200,			//	850,			//	1000,
+	RENDERER_H = 700,			//	450,			//	600,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
 	VERSION	= "2.0.0",			//	version inicial
 	FONDO_AYUDA = 0x008cff,
@@ -53,6 +53,11 @@ let rendererOptions = {
 
 //	Create the renderer
 let renderer = autoDetectRenderer( RENDERER_W, RENDERER_H, rendererOptions );
+
+if (DEBUG)
+{
+	console.log( "RENDERER_W, RENDERER_H: " + RENDERER_W, + ", " +RENDERER_H);
+}
 
 // Put the renderer on screen in the corner
 renderer.view.style.position = "absolute";
@@ -357,7 +362,7 @@ function HaceBotones() {
 	//	prepara los botones; que en realidad son textos botonizados
 	//	console.log("haciendo los botones");
 
-	var BotonTexture;
+	//	var BotonTexture;
 
 	//	-------------------------------------------------------------	
 	//	ESTILO COMUN A TODOS LOS BOTONES-TEXTO
@@ -604,14 +609,24 @@ function Ayuda() {
 //	solamente para depurar
 function DibujaGrilla() {
 
+	const style = new PIXI.TextStyle({
+		//	fill: "#ffffff",
+		fontFamily: FONT_NIVEL3,		//	fontFamily: "Sriracha",
+		fontSize: 12,
+		//	fontStyle: "normal",
+		//	fontWeight: "400"
+	});
+	var numText = new PIXI.Text('1', style );
+
 	var posX=50, posY=50;
 	var line = new PIXI.Graphics();
-	//	var rectang = new PIXI.Graphics();
 
 	line.lineStyle(1, "#bbbbbbb", 0.5 )
 
 	//	lineas horizontales
-	while (posY<=RENDERER_H)
+	numText.x = 25;
+	//	while (posY<=RENDERER_H)
+	while (posY<=1010)
 	{
 		line.moveTo(0, posY);
 		line.lineTo(RENDERER_W, posY);
@@ -619,17 +634,26 @@ function DibujaGrilla() {
 		//	line.y = ( 50 * i ) + 25 ;
 		EscenarioGral.addChild(line);
 
+		numText.text = posY;
+		numText.y = posY;
+		EscenarioGral.addChild(numText);
+
 		posY = posY+50;
 	}
 
 	//	lineas verticales
-	while (posX<=RENDERER_W)
+	numText.y = 25;
+	while (posX<=800)
 	{
 		line.moveTo(posX, 0);
 		line.lineTo(posX, RENDERER_H);
 		//	line.x = ( 50 * i ) + 25;
 		//	line.y = 0;
 		EscenarioGral.addChild(line);
+
+		numText.text = posX;
+		numText.x = posX;
+		EscenarioGral.addChild(numText);
 
 		posX = posX+50;
 	}
