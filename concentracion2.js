@@ -40,9 +40,9 @@ var	FILA_BOTONES = 50,
 	FONT_NIVEL2 = "bangersregular",	//	botones: "Bangers",	//	"Sigmar One",
 	FONT_NIVEL3 = "sriracharegular",		//	textos:
 
-	COLOR_BOTON = 0x006600,
-	//	DEBUG = false;
-	DEBUG = true;
+	COLOR_BOTON = 0x0033cc,				//	COLOR_BOTON = 0x006600,
+	DEBUG = false;
+	//	DEBUG = true;
 
 
 
@@ -291,9 +291,9 @@ function setup() {
 	state = Menu;
 
 	//	Una grilla para ubicarnos en el canvas
-	//	if (DEBUG) {
+	if (DEBUG) {
 		DibujaGrilla()
-	//	}
+	}
 
 	resize();		//	para refresca la pagina
 
@@ -321,17 +321,17 @@ function gameLoop(){
 
 function resize() {
 
-   // Determine which screen dimension is most constrained
-  var ratio = Math.min(window.innerWidth/RENDERER_W,
-                   window.innerHeight/RENDERER_H);
+	// Determine which screen dimension is most constrained
+	var ratio = Math.min(window.innerWidth/RENDERER_W,
+				   window.innerHeight/RENDERER_H);
 
-  // Scale the view appropriately to fill that dimension
-  //	EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
-  EscenarioGral.scale.x = EscenarioGral.scale.y = 0.9 * ratio;
+	// Scale the view appropriately to fill that dimension
+	//	EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
+	EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
 
-  // Update the renderer dimensions
-  renderer.resize(Math.ceil(RENDERER_W * ratio),
-                  Math.ceil(RENDERER_H * ratio));
+	// Update the renderer dimensions
+	renderer.resize(Math.ceil(RENDERER_W * ratio),
+					Math.ceil(RENDERER_H * ratio));
 }
 
 
@@ -544,7 +544,8 @@ function PantallaAyuda() {
 		'las parejas de imagenes iguales.\n' + 
 		'Al pulsar sobre una imagen, esta se da vuelta.\n' + 
 		'Se eligen dos fichas consecutivas. Si resultan ser iguales se\n' +
-		'retiran del tablero. Si son diferentes vuelven a la posicion original.\n' + 
+		'retiran del tablero. Si son diferentes vuelven a la posicion\n' +
+		'original.\n' + 
 		'El juego finaliza cuando se han encontrado todas las parejas.', 
 		style );
 
@@ -759,8 +760,9 @@ function PantallaAcercaDe() {
 		fontWeight: "bold"
 	});
 	const richText = new PIXI.Text('Acerca de MEMORIOSO version ' + VERSION + '\n' +
-		'Es un juego para ejercitar concentracion y memoria \n' +
-		'desarrollado por Willie Verger Juegos de Ingenio\n\n' +
+		'Es un juego para ejercitar concentracion \n' +
+		'y memoria desarrollado por \n' +
+		'Willie Verger Juegos de Ingenio\n\n' +
 		'Soporte: info@ingverger.com.ar\n' +
 		'Web: ingverger.com.ar\n' +
 		'\n', style);
@@ -787,7 +789,7 @@ function haceSelectorDifi(){
 	const	y0 = 180;
 	const	anchoCaja = 160,
 		altoCaja = 100,
-		COLOR_CAJA = 0x9900ff,				//	0x99bbff,
+		COLOR_CAJA = 0x9966ff,				//	0x99bbff,
 		COLOR_FLECHA = 0x990033;
 
 	//	números indicadores del nivel actual
