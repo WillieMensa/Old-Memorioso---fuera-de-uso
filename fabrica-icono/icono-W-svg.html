@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width">
+    <title>icono memorioso</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Gugi" rel="stylesheet">
+
+	<style>
+        /* Disable intrinsic user agent touch behaviors (such as panning or zooming) */
+        canvas {
+			touch-action: none;
+			border:1px solid #000000;"
+			font-family: 'Gugi', cursive;
+			/*	font-family: 'Fredoka One', cursive;	*/
+        }
+
+	</style>
+
+
+	<script>
+
+		function init() {
+		};
+
+	</script>
+
+
+</head>
+
+<!-- <body onload="init()"> -->
+<body >
+
+<svg width="512" height="512">
+
+<defs>
+
+    <filter id="f1" x="0" y="0" width="200%" height="200%">
+		<feOffset result="offOut" in="SourceAlphaGraphic" dx="32" dy="32" />
+		<feColorMatrix result="matrixOut"  in="offOut" type="saturate"		values="0.12" />
+		<feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />
+		<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+
+
+</defs>
+
+<rect  x="0" y="0" width="512" height="512" stroke="gray" fill="#eeeeee" stroke-width="1" />
+<rect  x="53" y="53" rx="32" ry="32" width="406" height="406" stroke="white" stroke-width="0" fill="blue" filter="url(#f1)" />
+
+<polyline points="150,150 203,362 256,150 309,362 362,150"
+  style="fill:none;stroke:#ddeeff;stroke-width:48" />
+
+
+
+
+</svg>
+
+
+<!-- 		<feOffset result="offOut" in="SourceGraphic" dx="32" dy="32" />
+ -->
+</body>
+</html>

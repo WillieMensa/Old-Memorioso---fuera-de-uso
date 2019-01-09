@@ -54,7 +54,7 @@ MEMORIOSO 2 es un juego de concentracion y memoria. Es el reemplazo mejorado de 
 #### Descripción breve
 Un juego que permite entrenar la memoria y divertirse al mismo tiempo.
 
-#### Descripción breve
+#### Descripción DETALLADA
 Es un juego y un ejercicio mental. Exige agudizar la concentración y la memoria.
 La memoria como cualquier otra capacidad se mantiene y mejora ejercitandola.
 

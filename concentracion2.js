@@ -133,20 +133,17 @@ const	estiloTxtBoton = new PIXI.TextStyle({	//	estilo comun a los botones con te
 
 const	aNivDif = [
 		{ niv:0, nCol:4, nFil:2 },			//	8
-		{ niv:1, nCol:5, nFil:2 },			//	10
-		{ niv:2, nCol:4, nFil:3 },			//	12
-		{ niv:3, nCol:7, nFil:2 },			//	14
-		{ niv:4, nCol:4, nFil:4 },			//	16
-		{ niv:5, nCol:9, nFil:2 },			//	18
-		{ niv:6, nCol:5, nFil:4 },			//	20
-		{ niv:7, nCol:8, nFil:3 },			//	24
-		{ niv:8, nCol:7, nFil:4 },			//	28
-		{ niv:9, nCol:6, nFil:5 },			//	30
-		{ niv:10, nCol:8, nFil:4 },			//	32
-		{ niv:11, nCol:6, nFil:6 },			//	36
-		{ niv:12, nCol:8, nFil:5 },			//	40
-		{ niv:13, nCol:8, nFil:6 },			//	48
-		{ niv:14, nCol:9, nFil:6 }			//	54
+		{ niv:1, nCol:4, nFil:3 },			//	12
+		{ niv:2, nCol:4, nFil:4 },			//	16
+		{ niv:3, nCol:5, nFil:4 },			//	20
+		{ niv:4, nCol:8, nFil:3 },			//	24
+		{ niv:5, nCol:7, nFil:4 },			//	28
+		{ niv:6, nCol:6, nFil:5 },			//	30
+		{ niv:7, nCol:8, nFil:4 },			//	32
+		{ niv:8, nCol:6, nFil:6 },			//	36
+		{ niv:9, nCol:8, nFil:5 },			//	40
+		{ niv:10, nCol:8, nFil:6 },			//	48
+		{ niv:11, nCol:9, nFil:6 }			//	54
 	]
 
 
@@ -786,24 +783,33 @@ function PantallaAcercaDe() {
 
 function haceSelectorDifi(){
 	const	x0 = FILA_BOTONES;
-	const	y0 = 180;
-	const	anchoCaja = 160,
+	const	y0 = 160;
+	const	anchoCaja = 200,
 		altoCaja = 100,
 		COLOR_CAJA = 0x9966ff,				//	0x99bbff,
 		COLOR_FLECHA = 0x990033;
 
-	//	números indicadores del nivel actual
-	var style = new PIXI.TextStyle({
+	//	Texto grande; números indicadores del nivel actual
+	var styleL = new PIXI.TextStyle({
 		fill: COLOR_BOTON,					    //	
 		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
-		fontSize: 48,
+		fontSize: 64,
 		fontWeight: "bold",
-		padding: 8,
+		padding: 12,
+	});
+
+	//	---------------------------------------------------------------
+	//	Texto pequeño; Titulo del selector, texto de la caja e indicador de nivel
+	styleS = new PIXI.TextStyle({
+		fill: COLOR_BOTON,					    //	
+		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
+		fontSize: 28,
+		fontWeight: "normal",
+		padding: 4,
 	});
 
 	// draw a rounded rectangle
 	var graphics = new PIXI.Graphics();
-	//	graphics.lineStyle(1, 0xcc9900, 1);
 	graphics.beginFill(COLOR_CAJA, 0.3);
 	graphics.drawRoundedRect(x0, y0, anchoCaja, altoCaja, 10);
 	graphics.endFill();
@@ -813,7 +819,7 @@ function haceSelectorDifi(){
 	//	--------------------------------------------------------
 	//	a titulo experimental pruebo botones con simbolos mas y menos
 	//	boton incrementa dificultad
-	BotonDificilMas = new PIXI.Text( "+", style );
+	BotonDificilMas = new PIXI.Text( "+", styleL );
 	BotonDificilMas.x = x0 + (0.8 * anchoCaja);
 	BotonDificilMas.y = y0 + (0.56 * altoCaja);
 	BotonDificilMas.anchor.set(0.5);
@@ -824,7 +830,7 @@ function haceSelectorDifi(){
 	EscenaMenuInic.addChild(BotonDificilMas);
 
 	//	boton decrementa dificultad
-	BotonDificilMenos = new PIXI.Text( "-", style );
+	BotonDificilMenos = new PIXI.Text( "-", styleL );
 	BotonDificilMenos.x = x0 + (0.2 * anchoCaja);
 	BotonDificilMenos.y = y0 + (0.56 * altoCaja);
 	BotonDificilMenos.anchor.set(0.5);
@@ -837,23 +843,14 @@ function haceSelectorDifi(){
 	//	número indicador de nivel de dificultad
 	//	la variable debe definirse entre las globales para ser luego actualizada 
 	//	mediante los botones que tambien deben ser reconocidos global
-	txtNivDif = new PIXI.Text( "8", style );
+	txtNivDif = new PIXI.Text( "8", styleL );
 	txtNivDif.x = x0+(anchoCaja/2);
 	txtNivDif.y = y0 + (0.56 * altoCaja);
 	txtNivDif.anchor.set(0.5);
 
-	//	---------------------------------------------------------------
-	//	Titulo del selector, texto de la caja
-	style = new PIXI.TextStyle({
-		fill: COLOR_BOTON,					    //	
-		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
-		fontSize: 28,
-		fontWeight: "normal",
-		padding: 4,
-	});
-	var txtTitulo = new PIXI.Text( "Dificultad", style );
+	var txtTitulo = new PIXI.Text( "Dificultad", styleS );
 	txtTitulo.x = x0+(anchoCaja/2);
-	txtTitulo.y = y0 + 20 ;
+	txtTitulo.y = y0 + 16 ;
 	txtTitulo.anchor.set(0.5);
 
 	EscenaMenuInic.addChild(txtNivDif);
@@ -1042,8 +1039,8 @@ function onTilesLoaded(){
 		"img-147.png"
 		];
 
-	const offset_X = 150 + 50*(8-nCol),
-		offset_Y = 50 + 50*(6-nFil);
+	const offset_X = 50 + 45*(9-nCol),
+		offset_Y = 30 + 45*(6-nFil);
 
 	if (DEBUG)	{ console.log( "nCol, nFil: " + nCol + ", " + nFil ) }
 	if (DEBUG)	{ console.log( "offset_X, offset_Y: " + offset_X + ", " + offset_Y ) }
@@ -1091,7 +1088,7 @@ function onTilesLoaded(){
 			// paint tile black
 			tile.tint = 0x000000;
 			// set it a bit transparent (it will look grey)
-			tile.alpha=0.5;
+			tile.alpha=0.7;
 			// add the tile
 			EscenarioGral.addChild(tile);
 			// mouse-touch listener
@@ -1141,8 +1138,8 @@ function onTilesLoaded(){
 									secondTile.isSelected=false
 									firstTile.tint = 0x000000;
 									secondTile.tint = 0x000000;
-									firstTile.alpha=0.5;
-									secondTile.alpha=0.5;
+									firstTile.alpha=0.7;		//	0.5;
+									secondTile.alpha=0.7;		//	0.5;
 									firstTile=null;
 									secondTile=null;
 									canPick=true	
