@@ -23,16 +23,6 @@
 
 
 @font-face {
-    font-family: 'sigmar_oneregular';
-    src: url('sigmarone-regular-webfont.woff2') format('woff2'),
-         url('sigmarone-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
     font-family: 'sriracharegular';
     src: url('sriracha-regular-webfont.woff2') format('woff2'),
          url('sriracha-regular-webfont.woff') format('woff');
@@ -41,15 +31,6 @@
 
 }
 
-
-@font-face {
-    font-family: 'titan_oneregular';
-    src: url('titanone-regular.woff2') format('woff2'),
-         url('titanone-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 
 body {
@@ -66,20 +47,27 @@ h1 {
 }
 
 h2 {
-    font-family: 'sigmar_oneregular';
-	font-size: 16px;
-
-}
-
-h3 {
 	font-family: 'sriracharegular', cursive;
 	font-size: 12px;
 
 }
 
-h4 {
-    font-family: 'titan_oneregular';
-	font-size: 10px;
 
+
+/*		fonts aparentemente sin uso		*/
+@font-face {
+    font-family: 'sigmar_oneregular';
+    src: url('sigmarone-regular-webfont.woff2') format('woff2'),
+         url('sigmarone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'titan_oneregular';
+    src: url('titanone-regular.woff2') format('woff2'),
+         url('titanone-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 

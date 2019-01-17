@@ -41,8 +41,8 @@ var	FILA_BOTONES = 50,
 	FONT_NIVEL3 = "sriracharegular",		//	textos:
 
 	COLOR_BOTON = 0x0033cc,				//	COLOR_BOTON = 0x006600,
-	DEBUG = false;
-	//	DEBUG = true;
+	//	DEBUG = false;
+	DEBUG = true;
 
 
 
@@ -205,26 +205,6 @@ function setup() {
 	if (DEBUG) {
 		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
 	}
-
-	//	let fontFaceSet = document.fonts;
-	//	console.log( "fontFaceSet : " + fontFaceSet );
-	//	let result = aFontFaceSet.load("luckiest_guyregular");
-
-	//	document.fonts.load("luckiest_guyregular")
-    //	          .then(drawStuff, handleError);
-
-	//	var lFontCargado = document.fonts.check( "luckiest_guyregular" ); // returns true if the font courier is available at 12px
-
-	//	var lFontCargado = aFontFaceSet.check( "luckiestguy" );	
-	//	document.fonts.check( luckiestguy ); // returns true if the font courier is available at 12px
-
-	//	console.log("lFontCargado: " + 	lFontCargado );
-
-	//	https://drafts.csswg.org/css-font-loading/#font-load-event-examples
-	//	document.fonts.ready.then(function() {
-	//	  var content = document.getElementById("content");
-	//	  content.style.visibility = "visible";
-	//	});
 
 	//Get a reference to the texture atlas id's
 	//	Create an alias for the texture atlas frame ids
