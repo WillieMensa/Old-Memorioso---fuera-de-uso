@@ -25,15 +25,18 @@ let Container = PIXI.Container,
 //	-------------------------
 var	FILA_BOTONES = 50,
 	LINEA_BOTONES = 470,
-	RENDERER_W = 1200,			//	850,			//	1000,
-	RENDERER_H = 700,			//	450,			//	600,
+	//	RENDERER_W = 1200,			//	850,			//	1000,
+	//	RENDERER_H = 700,			//	450,			//	600,
+	RENDERER_W = 1000,			//	1000,
+	RENDERER_H = 600,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
-	VERSION	= "2.0.0",			//	version inicial
+	VERSION	= "2.0.1",			//	version inicial
 	FONDO_AYUDA = 0x008cff,
-	FONT_NIVEL1 = "luckiest_guyregular",	//	titulo:	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
+	FONT_NIVEL1 = "luckiest_guyregular"	//	titulo:	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
 	FONT_NIVEL2 = "bangersregular",	//	botones: "Bangers",	//	"Sigmar One",
 	FONT_NIVEL3 = "sriracharegular",		//	textos:
-	COLOR_BOTON = 0x006600,
+
+	COLOR_BOTON = 0x0033cc,				//	COLOR_BOTON = 0x006600,
 	DEBUG = false;
 	//	DEBUG = true;
 
@@ -53,11 +56,7 @@ let rendererOptions = {
 
 //	Create the renderer
 let renderer = autoDetectRenderer( RENDERER_W, RENDERER_H, rendererOptions );
-
-if (DEBUG)
-{
-	console.log( "RENDERER_W, RENDERER_H: " + RENDERER_W, + ", " +RENDERER_H);
-}
+//	let renderer = autoDetectRenderer( rendererOptions );
 
 // Put the renderer on screen in the corner
 renderer.view.style.position = "absolute";
@@ -130,20 +129,17 @@ const	estiloTxtBoton = new PIXI.TextStyle({	//	estilo comun a los botones con te
 
 const	aNivDif = [
 		{ niv:0, nCol:4, nFil:2 },			//	8
-		{ niv:1, nCol:5, nFil:2 },			//	10
-		{ niv:2, nCol:4, nFil:3 },			//	12
-		{ niv:3, nCol:7, nFil:2 },			//	14
-		{ niv:4, nCol:4, nFil:4 },			//	16
-		{ niv:5, nCol:9, nFil:2 },			//	18
-		{ niv:6, nCol:5, nFil:4 },			//	20
-		{ niv:7, nCol:8, nFil:3 },			//	24
-		{ niv:8, nCol:7, nFil:4 },			//	28
-		{ niv:9, nCol:6, nFil:5 },			//	30
-		{ niv:10, nCol:8, nFil:4 },			//	32
-		{ niv:11, nCol:6, nFil:6 },			//	36
-		{ niv:12, nCol:8, nFil:5 },			//	40
-		{ niv:13, nCol:8, nFil:6 },			//	48
-		{ niv:14, nCol:9, nFil:6 }			//	54
+		{ niv:1, nCol:4, nFil:3 },			//	12
+		{ niv:2, nCol:4, nFil:4 },			//	16
+		{ niv:3, nCol:5, nFil:4 },			//	20
+		{ niv:4, nCol:8, nFil:3 },			//	24
+		{ niv:5, nCol:7, nFil:4 },			//	28
+		{ niv:6, nCol:6, nFil:5 },			//	30
+		{ niv:7, nCol:8, nFil:4 },			//	32
+		{ niv:8, nCol:6, nFil:6 },			//	36
+		{ niv:9, nCol:8, nFil:5 },			//	40
+		{ niv:10, nCol:8, nFil:6 },			//	48
+		{ niv:11, nCol:9, nFil:6 }			//	54
 	]
 
 
@@ -152,15 +148,22 @@ const	aNivDif = [
 var fonts_ready = false;
 var assets_ready = false;
 
-WebFont.load({
-	google: {
-		families: [ 'Bangers', 'Titan One', 'Sigmar One', 'Sriracha', 'Luckiest Guy' ]
-	},
-	active: function() {
-		fonts_ready = true;
-        preloaderCheck();
-    }
-  });
+//	WebFontConfig = {
+//	  custom: {
+//	    families: ['luckiestguy', 'sriracha', 'titanone'],
+//	    urls: ['fonts.css']
+//	  }
+//	};
+
+//	WebFont.load({
+//		google: {
+//			families: [ 'Bangers', 'Titan One', 'Sigmar One', 'Sriracha', 'Luckiest Guy' ]
+//		},
+//		active: function() {
+//			fonts_ready = true;
+//	        preloaderCheck();
+//	    }
+//	  });
 
 /*
 setTimeout(function()
@@ -170,14 +173,10 @@ setTimeout(function()
 */
 
 //load resources
-loader
+//load resources; a JSON file and run the `setup` function when it's done 
+PIXI.loader
 	.add("memorioso2.json")		//	PIXI.loader.add("assets/spritesheet.json").load(setup);
-	.load(function() {
-		assets_ready = true;
-		preloaderCheck();
-    });
-	//	.load(loader, resources)
-	//	.load(setup);
+	.load(setup);
 
 
 //	PIXI.loader
@@ -187,17 +186,21 @@ loader
 //	        preloaderCheck();
 //	    });
 
-function preloaderCheck() {
-	if (fonts_ready && assets_ready)
-		setup();
-}
+//	function preloaderCheck() {
+//		if (DEBUG)	{
+//			console.log("preloader check");
+//		}
+//	
+//		if (fonts_ready && assets_ready)
+//			setup();
+//	}
 
 //	======================================================================
 function setup() {
 
-	//	if (DEBUG) {
-	//		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
-	//	}
+	if (DEBUG) {
+		console.log("window.innerWidth,innerHeigh: " + window.innerWidth + ", " + window.innerHeight );
+	}
 
 	//Get a reference to the texture atlas id's
 	//	Create an alias for the texture atlas frame ids
@@ -238,6 +241,13 @@ function setup() {
 	//	EscenaDificultad = new PIXI.Container();
 	//	EscenarioGral.addChild(EscenaDificultad);
 
+	//	antes de dibujar verificamos carga de fonts
+	//	let fontFaceSet = document.fonts;
+	document.fonts.ready.then(function() {
+		  // Any operation that needs to be done only after all the fonts
+		  // have finished loading can go here.
+	});
+
 	//	prepara los botones de la aplicacion
 	HaceBotones()
 
@@ -254,9 +264,9 @@ function setup() {
 	state = Menu;
 
 	//	Una grilla para ubicarnos en el canvas
-	//	if (DEBUG) {
+	if (DEBUG) {
 		DibujaGrilla()
-	//	}
+	}
 
 	resize();		//	para refresca la pagina
 
@@ -284,17 +294,17 @@ function gameLoop(){
 
 function resize() {
 
-   // Determine which screen dimension is most constrained
-  var ratio = Math.min(window.innerWidth/RENDERER_W,
-                   window.innerHeight/RENDERER_H);
+	// Determine which screen dimension is most constrained
+	var ratio = Math.min(window.innerWidth/RENDERER_W,
+				   window.innerHeight/RENDERER_H);
 
-  // Scale the view appropriately to fill that dimension
-  //	EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
-  EscenarioGral.scale.x = EscenarioGral.scale.y = 0.9 * ratio;
+	// Scale the view appropriately to fill that dimension
+	//	EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
+	EscenarioGral.scale.x = EscenarioGral.scale.y = ratio;
 
-  // Update the renderer dimensions
-  renderer.resize(Math.ceil(RENDERER_W * ratio),
-                  Math.ceil(RENDERER_H * ratio));
+	// Update the renderer dimensions
+	renderer.resize(Math.ceil(RENDERER_W * ratio),
+					Math.ceil(RENDERER_H * ratio));
 }
 
 
@@ -303,7 +313,7 @@ function PantallaInicio() {
 	EscenaMenuInic.visible = true;
 
 	const style = new PIXI.TextStyle({
-		fill: "#040",					    //	
+		fill: 0x9900cc,						//	"#040",					    //	
 		fontFamily: FONT_NIVEL1,			//	fontFamily: 'Titan One',
 		fontSize: 96,
 		fontWeight: "bold",
@@ -321,7 +331,7 @@ function PantallaInicio() {
 	//	txtTitulo.x = 600;
 	txtTitulo.x = 200+ ( RENDERER_W - 200 ) / 2;
 	//	txtTitulo.x = window.innerWidth / 2 ;
-	txtTitulo.y = 200;			//	(RENDERER_H / 2);
+	txtTitulo.y = 250;			//	(RENDERER_H / 2);
 	txtTitulo.anchor.set(0.5);
 	//	txtTitulo.rotation = -0.2;
 
@@ -362,7 +372,7 @@ function HaceBotones() {
 	//	prepara los botones; que en realidad son textos botonizados
 	//	console.log("haciendo los botones");
 
-	//	var BotonTexture;
+	var BotonTexture;
 
 	//	-------------------------------------------------------------	
 	//	ESTILO COMUN A TODOS LOS BOTONES-TEXTO
@@ -507,7 +517,8 @@ function PantallaAyuda() {
 		'las parejas de imagenes iguales.\n' + 
 		'Al pulsar sobre una imagen, esta se da vuelta.\n' + 
 		'Se eligen dos fichas consecutivas. Si resultan ser iguales se\n' +
-		'retiran del tablero. Si son diferentes vuelven a la posicion original.\n' + 
+		'retiran del tablero. Si son diferentes vuelven a la posicion\n' +
+		'original.\n' + 
 		'El juego finaliza cuando se han encontrado todas las parejas.', 
 		style );
 
@@ -605,18 +616,17 @@ function Ayuda() {
 }
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////
 //	solamente para depurar
 function DibujaGrilla() {
 
 	const style = new PIXI.TextStyle({
-		//	fill: "#ffffff",
 		fontFamily: FONT_NIVEL3,		//	fontFamily: "Sriracha",
-		fontSize: 12,
+		fontSize: 10,
 		//	fontStyle: "normal",
 		//	fontWeight: "400"
 	});
-	var numText = new PIXI.Text('1', style );
 
 	var posX=50, posY=50;
 	var line = new PIXI.Graphics();
@@ -624,17 +634,17 @@ function DibujaGrilla() {
 	line.lineStyle(1, "#bbbbbbb", 0.5 )
 
 	//	lineas horizontales
-	numText.x = 25;
 	//	while (posY<=RENDERER_H)
-	while (posY<=1010)
+	while (posY<= RENDERER_H )
 	{
 		line.moveTo(0, posY);
-		line.lineTo(RENDERER_W, posY);
+		line.lineTo(RENDERER_W+200, posY);
 		//	line.x = 0;
 		//	line.y = ( 50 * i ) + 25 ;
 		EscenarioGral.addChild(line);
 
-		numText.text = posY;
+		var numText = new PIXI.Text(posY, style );
+		numText.x = 25;
 		numText.y = posY;
 		EscenarioGral.addChild(numText);
 
@@ -642,17 +652,18 @@ function DibujaGrilla() {
 	}
 
 	//	lineas verticales
-	numText.y = 25;
-	while (posX<=800)
+	while (posX<= RENDERER_W )
 	{
 		line.moveTo(posX, 0);
-		line.lineTo(posX, RENDERER_H);
+		line.lineTo(posX, RENDERER_H+200);
 		//	line.x = ( 50 * i ) + 25;
 		//	line.y = 0;
 		EscenarioGral.addChild(line);
 
-		numText.text = posX;
+		var numText = new PIXI.Text(posX, style );
+		//	numText.text = posX;
 		numText.x = posX;
+		numText.y = 50;
 		EscenarioGral.addChild(numText);
 
 		posX = posX+50;
@@ -722,8 +733,9 @@ function PantallaAcercaDe() {
 		fontWeight: "bold"
 	});
 	const richText = new PIXI.Text('Acerca de MEMORIOSO version ' + VERSION + '\n' +
-		'Es un juego para ejercitar concentracion y memoria \n' +
-		'desarrollado por Willie Verger Juegos de Ingenio\n\n' +
+		'Es un juego para ejercitar concentracion \n' +
+		'y memoria desarrollado por \n' +
+		'Willie Verger Juegos de Ingenio\n\n' +
 		'Soporte: info@ingverger.com.ar\n' +
 		'Web: ingverger.com.ar\n' +
 		'\n', style);
@@ -747,25 +759,34 @@ function PantallaAcercaDe() {
 
 function haceSelectorDifi(){
 	const	x0 = FILA_BOTONES;
-	const	y0 = 180;
-	const	anchoCaja = 160,
+	const	y0 = 160;
+	const	anchoCaja = 200,
 		altoCaja = 100,
-		COLOR_CAJA = 0x99bbff,
+		COLOR_CAJA = 0x9966ff,				//	0x99bbff,
 		COLOR_FLECHA = 0x990033;
 
-	//	números indicadores del nivel actual
-	var style = new PIXI.TextStyle({
+	//	Texto grande; números indicadores del nivel actual
+	var styleL = new PIXI.TextStyle({
 		fill: COLOR_BOTON,					    //	
 		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
-		fontSize: 48,
+		fontSize: 64,
 		fontWeight: "bold",
-		padding: 8,
+		padding: 12,
+	});
+
+	//	---------------------------------------------------------------
+	//	Texto pequeño; Titulo del selector, texto de la caja e indicador de nivel
+	styleS = new PIXI.TextStyle({
+		fill: COLOR_BOTON,					    //	
+		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
+		fontSize: 28,
+		fontWeight: "normal",
+		padding: 4,
 	});
 
 	// draw a rounded rectangle
 	var graphics = new PIXI.Graphics();
-	graphics.lineStyle(1, 0xcc9900, 1);
-	graphics.beginFill(0xcc9900, 0.4);
+	graphics.beginFill(COLOR_CAJA, 0.3);
 	graphics.drawRoundedRect(x0, y0, anchoCaja, altoCaja, 10);
 	graphics.endFill();
 	EscenaMenuInic.addChild(graphics);
@@ -774,7 +795,7 @@ function haceSelectorDifi(){
 	//	--------------------------------------------------------
 	//	a titulo experimental pruebo botones con simbolos mas y menos
 	//	boton incrementa dificultad
-	BotonDificilMas = new PIXI.Text( "+", style );
+	BotonDificilMas = new PIXI.Text( "+", styleL );
 	BotonDificilMas.x = x0 + (0.8 * anchoCaja);
 	BotonDificilMas.y = y0 + (0.56 * altoCaja);
 	BotonDificilMas.anchor.set(0.5);
@@ -785,7 +806,7 @@ function haceSelectorDifi(){
 	EscenaMenuInic.addChild(BotonDificilMas);
 
 	//	boton decrementa dificultad
-	BotonDificilMenos = new PIXI.Text( "-", style );
+	BotonDificilMenos = new PIXI.Text( "-", styleL );
 	BotonDificilMenos.x = x0 + (0.2 * anchoCaja);
 	BotonDificilMenos.y = y0 + (0.56 * altoCaja);
 	BotonDificilMenos.anchor.set(0.5);
@@ -798,23 +819,14 @@ function haceSelectorDifi(){
 	//	número indicador de nivel de dificultad
 	//	la variable debe definirse entre las globales para ser luego actualizada 
 	//	mediante los botones que tambien deben ser reconocidos global
-	txtNivDif = new PIXI.Text( "8", style );
+	txtNivDif = new PIXI.Text( "8", styleL );
 	txtNivDif.x = x0+(anchoCaja/2);
 	txtNivDif.y = y0 + (0.56 * altoCaja);
 	txtNivDif.anchor.set(0.5);
 
-	//	---------------------------------------------------------------
-	//	Titulo del selector, texto de la caja
-	style = new PIXI.TextStyle({
-		fill: COLOR_BOTON,					    //	
-		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
-		fontSize: 28,
-		fontWeight: "normal",
-		padding: 4,
-	});
-	var txtTitulo = new PIXI.Text( "Dificultad", style );
+	var txtTitulo = new PIXI.Text( "Dificultad", styleS );
 	txtTitulo.x = x0+(anchoCaja/2);
-	txtTitulo.y = y0 + 20 ;
+	txtTitulo.y = y0 + 16 ;
 	txtTitulo.anchor.set(0.5);
 
 	EscenaMenuInic.addChild(txtNivDif);
@@ -1003,8 +1015,10 @@ function onTilesLoaded(){
 		"img-147.png"
 		];
 
-	const offset_X = 150 + 50*(8-nCol),
-		offset_Y = 50 + 50*(6-nFil);
+	//	const offset_X = 50 + 45*(9-nCol),
+	const offset_X = (RENDERER_W - (90*nCol))/2 ,
+		offset_Y = (RENDERER_H - (90*nFil))/2 ;		//	30 + 45*(6-nFil);
+		//	offset_Y = 30 + 45*(6-nFil);
 
 	if (DEBUG)	{ console.log( "nCol, nFil: " + nCol + ", " + nFil ) }
 	if (DEBUG)	{ console.log( "offset_X, offset_Y: " + offset_X + ", " + offset_Y ) }
@@ -1016,9 +1030,6 @@ function onTilesLoaded(){
 			chosenTiles.push(candidate,candidate)
 		}			
 	}
-
-	//	espiar contenido de chosenTiles
-	//	if (DEBUG)	{ mostrarPropiedades(chosenTiles, "chosenTiles: ") }
 
 
 	// shuffle the chosen tiles
@@ -1055,7 +1066,7 @@ function onTilesLoaded(){
 			// paint tile black
 			tile.tint = 0x000000;
 			// set it a bit transparent (it will look grey)
-			tile.alpha=0.5;
+			tile.alpha=0.7;
 			// add the tile
 			EscenarioGral.addChild(tile);
 			// mouse-touch listener
@@ -1081,12 +1092,6 @@ function onTilesLoaded(){
 
 							// did we pick the same tiles?
 							if(firstTile.theVal==secondTile.theVal){
-
-								//	elimino las baldositas quitadas del tablero
-								//	var pos = tilesOnBoard.indexOf(firstTile.theVal);
-								//	tilesOnBoard.splice(pos, 1 );
-								//	pos = tilesOnBoard.indexOf(secondTile.theVal);
-								//	tilesOnBoard.splice(pos, 1 );
 	
 								var pos = chosenTiles.indexOf(firstTile.theVal);
 								chosenTiles.splice(pos, 1 );
@@ -1111,8 +1116,8 @@ function onTilesLoaded(){
 									secondTile.isSelected=false
 									firstTile.tint = 0x000000;
 									secondTile.tint = 0x000000;
-									firstTile.alpha=0.5;
-									secondTile.alpha=0.5;
+									firstTile.alpha=0.7;		//	0.5;
+									secondTile.alpha=0.7;		//	0.5;
 									firstTile=null;
 									secondTile=null;
 									canPick=true	
@@ -1126,32 +1131,6 @@ function onTilesLoaded(){
 	} 
 }
 
-
-
-
-
-function botonDeTexto(	//	funcion para preparar un boton con texto
-		texto,
-		posX,   		//	posicion X del fondo rectangular
-		posY,   	    //	
-		ancho,  		//	ancho del fondo rectangular
-		alto   		//	alto del idem
-	) {
-
-
-	//	-------------------------------------------------------------
-	//	Esquema de preparacion de un texto boton
-	var miBoton = new PIXI.Text( texto, estiloTxtBoton);
-	miBoton.anchor.set(0.5);
-	miBoton.x = posX + (ancho / 2 );			// Set the initial position
-	miBoton.y = posY + (alto / 2 );	
-	
-	miBoton.interactive = true;					// Opt-in to interactivity
-	miBoton.buttonMode = true;					// Shows hand cursor
-
-	return miBoton
-
-}
 
 
 
@@ -1201,32 +1180,3 @@ function GenJuego()			//	genera un nuevo juego
 }
 
 
-//	====================================================
-//	para experimentar
-//	====================================================
-
-
-//-------------------------------------------------
-//	funciones exclusivas para depuracion
-//-------------------------------------------------
-function mostrarPropiedades(objeto, nombreObjeto) {
-	//	https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Trabajando_con_objectos
-
-	var resultado = nombreObjeto;
-	for (var i in objeto) {
-		resultado +=  "." + i + " = " + objeto[i] + "\n";		
-	}
-	return resultado;
-}
-
-
-function recorrerObjeto(objeto)
-{
-	var respuesta="";
-	for (var i in objeto)
-	{
-		//	respuesta+=i+": "+ Object.entries(objeto[i])+"<br>";
-		respuesta+=i+": "+ objeto[i].name +"<br>";
-	}
-	return respuesta
-}

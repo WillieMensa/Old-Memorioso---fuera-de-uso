@@ -107,3 +107,5 @@ Faltaría una
 - mejorar la distribucion de imagenes en la pantalla. Calculos proporcionales a la medida de la pantalla
 
 
+versión 2.0.1		17/1/2019
+	Version propia con ajustes en el tamaño de pantalla
