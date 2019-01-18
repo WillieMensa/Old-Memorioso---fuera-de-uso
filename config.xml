@@ -29,7 +29,7 @@
 
  <platform name="android">
   <allow-intent href="market:*" />
-  <icon   src="memorioso.ico" />
+  <icon   src="icon.png" />
  </platform>
 
 </widget>
