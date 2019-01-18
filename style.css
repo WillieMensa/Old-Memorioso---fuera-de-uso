@@ -38,6 +38,7 @@ body {
 	padding: 0;
     font-family: 'bangersregular';
 	font-size: 9px;
+	background: #ecffb3;
 }
 
 h1 {
@@ -50,24 +51,5 @@ h2 {
 	font-family: 'sriracharegular', cursive;
 	font-size: 12px;
 
-}
-
-
-
-/*		fonts aparentemente sin uso		*/
-@font-face {
-    font-family: 'sigmar_oneregular';
-    src: url('sigmarone-regular-webfont.woff2') format('woff2'),
-         url('sigmarone-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'titan_oneregular';
-    src: url('titanone-regular.woff2') format('woff2'),
-         url('titanone-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
 }
 

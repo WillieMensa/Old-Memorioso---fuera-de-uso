@@ -27,22 +27,18 @@ var	FILA_BOTONES = 50,
 	LINEA_BOTONES = 470,
 	//	RENDERER_W = 1200,			//	850,			//	1000,
 	//	RENDERER_H = 700,			//	450,			//	600,
-	RENDERER_W = 900,			//	1000,
+	RENDERER_W = 1000,			//	1000,
 	RENDERER_H = 600,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
 	VERSION	= "2.0.0",			//	version inicial
 	FONDO_AYUDA = 0x008cff,
-	//	FONT_NIVEL1 = "TitanOne",	//	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
-	//	FONT_NIVEL2 = "Luckiest Guy",	//	"Bangers",	//	"Sigmar One",
-	//	FONT_NIVEL3 = "Sriracha",	//	FONT_NIVEL2 = "Sigmar One",
-
-	FONT_NIVEL1 = "luckiest_guyregular"	//	"sigmar_oneregular",	//	titulo:	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
+	FONT_NIVEL1 = "luckiest_guyregular"	//	titulo:	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
 	FONT_NIVEL2 = "bangersregular",	//	botones: "Bangers",	//	"Sigmar One",
 	FONT_NIVEL3 = "sriracharegular",		//	textos:
 
 	COLOR_BOTON = 0x0033cc,				//	COLOR_BOTON = 0x006600,
-	//	DEBUG = false;
-	DEBUG = true;
+	DEBUG = false;
+	//	DEBUG = true;
 
 
 
@@ -335,7 +331,7 @@ function PantallaInicio() {
 	//	txtTitulo.x = 600;
 	txtTitulo.x = 200+ ( RENDERER_W - 200 ) / 2;
 	//	txtTitulo.x = window.innerWidth / 2 ;
-	txtTitulo.y = 200;			//	(RENDERER_H / 2);
+	txtTitulo.y = 250;			//	(RENDERER_H / 2);
 	txtTitulo.anchor.set(0.5);
 	//	txtTitulo.rotation = -0.2;
 
@@ -639,7 +635,7 @@ function DibujaGrilla() {
 
 	//	lineas horizontales
 	//	while (posY<=RENDERER_H)
-	while (posY<= RENDERER_H + 50)
+	while (posY<= RENDERER_H )
 	{
 		line.moveTo(0, posY);
 		line.lineTo(RENDERER_W+200, posY);
@@ -656,10 +652,10 @@ function DibujaGrilla() {
 	}
 
 	//	lineas verticales
-	while (posX<= RENDERER_W + 50)
+	while (posX<= RENDERER_W )
 	{
 		line.moveTo(posX, 0);
-		line.lineTo(posX, RENDERER_H);
+		line.lineTo(posX, RENDERER_H+200);
 		//	line.x = ( 50 * i ) + 25;
 		//	line.y = 0;
 		EscenarioGral.addChild(line);
@@ -1019,8 +1015,10 @@ function onTilesLoaded(){
 		"img-147.png"
 		];
 
-	const offset_X = 50 + 45*(9-nCol),
-		offset_Y = 30 + 45*(6-nFil);
+	//	const offset_X = 50 + 45*(9-nCol),
+	const offset_X = (RENDERER_W - (90*nCol))/2 ,
+		offset_Y = (RENDERER_H - (90*nFil))/2 ;		//	30 + 45*(6-nFil);
+		//	offset_Y = 30 + 45*(6-nFil);
 
 	if (DEBUG)	{ console.log( "nCol, nFil: " + nCol + ", " + nFil ) }
 	if (DEBUG)	{ console.log( "offset_X, offset_Y: " + offset_X + ", " + offset_Y ) }
