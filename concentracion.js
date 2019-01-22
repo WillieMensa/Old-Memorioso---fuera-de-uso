@@ -1,10 +1,7 @@
 /*
 	concentracion.js
-
-	17/12/2018 - hay que detectar cuando se dieron vuelta todoslas baldosas
-
 */
-
+<!DOCTYPE html>
 //	-------------------------
 //	equivalencias - Aliases
 //	-------------------------
@@ -711,7 +708,7 @@ function end() {
 
 
 //	-------------------------------------------------------
-//	Funciones comunes a todas las aplicaciones con código especifico para la app
+//	Funciones comunes a todas las aplicaciones con cÃ³digo especifico para la app
 //	el codigo anterior no debiera modificarse salvo definiciones
 //	-------------------------------------------------------
 
@@ -765,7 +762,7 @@ function haceSelectorDifi(){
 		COLOR_CAJA = 0x9966ff,				//	0x99bbff,
 		COLOR_FLECHA = 0x990033;
 
-	//	Texto grande; números indicadores del nivel actual
+	//	Texto grande; nÃºmeros indicadores del nivel actual
 	var styleL = new PIXI.TextStyle({
 		fill: COLOR_BOTON,					    //	
 		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
@@ -775,7 +772,7 @@ function haceSelectorDifi(){
 	});
 
 	//	---------------------------------------------------------------
-	//	Texto pequeño; Titulo del selector, texto de la caja e indicador de nivel
+	//	Texto pequeÃ±o; Titulo del selector, texto de la caja e indicador de nivel
 	styleS = new PIXI.TextStyle({
 		fill: COLOR_BOTON,					    //	
 		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
@@ -816,7 +813,7 @@ function haceSelectorDifi(){
 
 	EscenaMenuInic.addChild(BotonDificilMenos);
 
-	//	número indicador de nivel de dificultad
+	//	nÃºmero indicador de nivel de dificultad
 	//	la variable debe definirse entre las globales para ser luego actualizada 
 	//	mediante los botones que tambien deben ser reconocidos global
 	txtNivDif = new PIXI.Text( "8", styleL );
