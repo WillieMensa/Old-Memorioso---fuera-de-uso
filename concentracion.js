@@ -1,6 +1,6 @@
 /*
 	concentracion.js
-
+	23/1/2019
 */
 
 //	-------------------------
@@ -27,7 +27,7 @@ let Container = PIXI.Container,
 	RENDERER_W = 1000,			//	1000,
 	RENDERER_H = 600,
 	FONDO_JUEGO = 0xecffb3,		//	 "#ffc",
-	VERSION	= "2.0.1",			//	version inicial
+	VERSION	= "2.0.2",			//	version inicial
 	FONDO_AYUDA = 0x008cff,
 	FONT_NIVEL1 = "luckiest_guyregular"	//	titulo:	"Bangers",	"Luckiest Guy",	"Titan One", "Sigmar One"
 	FONT_NIVEL2 = "bangersregular",	//	botones: "Bangers",	//	"Sigmar One",
@@ -117,8 +117,7 @@ const	estiloTxtBoton = new PIXI.TextStyle({	//	estilo comun a los botones con te
 		dropShadowColor: '#000000',
 		dropShadowBlur: 4,
 		dropShadowAngle: Math.PI / 6,
-		dropShadowDistance: 6,
-
+		dropShadowDistance: 6
 	});
 
 
@@ -703,11 +702,8 @@ function end() {
 
 
 
-
-
-
 //	-------------------------------------------------------
-//	Funciones comunes a todas las aplicaciones con código especifico para la app
+//	Funciones comunes a todas las aplicaciones con codigo especifico para la app
 //	el codigo anterior no debiera modificarse salvo definiciones
 //	-------------------------------------------------------
 
@@ -761,7 +757,7 @@ function haceSelectorDifi(){
 		COLOR_CAJA = 0x9966ff,				//	0x99bbff,
 		COLOR_FLECHA = 0x990033;
 
-	//	Texto grande; números indicadores del nivel actual
+	//	Texto grande; numeros indicadores del nivel actual
 	var styleL = new PIXI.TextStyle({
 		fill: COLOR_BOTON,					    //	
 		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
@@ -771,7 +767,7 @@ function haceSelectorDifi(){
 	});
 
 	//	---------------------------------------------------------------
-	//	Texto pequeño; Titulo del selector, texto de la caja e indicador de nivel
+	//	Texto pequeÃ±o; Titulo del selector, texto de la caja e indicador de nivel
 	styleS = new PIXI.TextStyle({
 		fill: COLOR_BOTON,					    //	
 		fontFamily: FONT_NIVEL2,			//	fontFamily: 'Titan One',			//	cursive;
@@ -812,7 +808,7 @@ function haceSelectorDifi(){
 
 	EscenaMenuInic.addChild(BotonDificilMenos);
 
-	//	número indicador de nivel de dificultad
+	//	numero indicador de nivel de dificultad
 	//	la variable debe definirse entre las globales para ser luego actualizada 
 	//	mediante los botones que tambien deben ser reconocidos global
 	txtNivDif = new PIXI.Text( "8", styleL );
