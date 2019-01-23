@@ -1,8 +1,6 @@
 /*
 	concentracion.js
 
-	17/12/2018 - hay que detectar cuando se dieron vuelta todoslas baldosas
-
 */
 
 //	-------------------------
@@ -15,15 +13,14 @@ let Container = PIXI.Container,
 	AnimatedSprite = PIXI.extras.AnimatedSprite,
 	TilingSprite = PIXI.extras.TilingSprite,
 	loader = PIXI.loader,
-	resources = PIXI.loader.resources,
-	Text = PIXI.Text;
-	
+	resources = PIXI.loader.resources;
 
+//	let	Text = PIXI.Text,
 
 //	-------------------------
 //	Constantes
 //	-------------------------
-var	FILA_BOTONES = 50,
+	let	FILA_BOTONES = 50,
 	LINEA_BOTONES = 470,
 	//	RENDERER_W = 1200,			//	850,			//	1000,
 	//	RENDERER_H = 700,			//	450,			//	600,
@@ -108,7 +105,6 @@ let firstTile=null,						// primera pieza elegida por el jugador
 	chosenTiles = undefined;			//	array con los numeros de las piezas
 
 const	estiloTxtBoton = new PIXI.TextStyle({	//	estilo comun a los botones con texto
-		fill: 0x008800,
 		fontFamily: FONT_NIVEL2,		//	fontFamily: "Sigmar One",
 		fontStyle: 'italic',
 		fontWeight: 'bold',

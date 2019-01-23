@@ -109,3 +109,8 @@ Faltaría una
 
 versión 2.0.1		17/1/2019
 	Version propia con ajustes en el tamaño de pantalla
+
+versión 2.0.2		23/1/2019
+	Ajustes menores para pasar de prueba interna a beta
+
+
