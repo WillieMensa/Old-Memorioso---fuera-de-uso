@@ -1,4 +1,4 @@
-# MEMORIOSO 2
+# MEMORIOSO
 by Willie Verger
 
 ## Description
@@ -45,10 +45,10 @@ Another good resource for generating a good CSP declaration is [CSP is Awesome][
 ### Spanish
 
 ## Título
-# MEMORIOSO 2
+# MEMORIOSO
 
 ## Descripción
-MEMORIOSO 2 es un juego de concentracion y memoria. Es el reemplazo mejorado de MEMORIOSO. 
+MEMORIOSO es un juego de concentracion y memoria. Es el reemplazo mejorado de MEMORIOSO. 
 ### ¿En que consiste?
 
 #### Descripción breve
