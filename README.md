@@ -1,23 +1,33 @@
 # MEMORIOSO
 by Willie Verger
 
-## Description
-Memorioso is a game that challenges your concentration and memory. 
-It's an opportunity for mental exercise and fun at the same time.
+## Title
+# MEMORIOUS
 
-### What does it consist of?
-There are different groups of images. You choose the group within which there will be pairs of identical images that you should detect.
-There are several levels of difficulty given by the number of images presented.
+## Brief description
+MEMORIOSO is a game where you must exercise concentration and memory.
+
+## Complete description
+There is a set of cards or cards, each with an image, placed in such a way that its front is not visible.
+There are two tabs of each image. The game consists of finding pairs of equal images.
+When you click on an image, it is turned over. Two consecutive cards are chosen.
+If they turn out to be the same they are removed from the board. If they are different, they return to the original position.
+The game ends when all pairs have been found.
+There are several levels of difficulty given by the amount of images presented.
 The mechanics of the game is simple, however it requires memory to facilitate the proper placement of pairs of images.
+
+### Degree of difficulty
+The degree of difficulty of the game is fixed by the amount of BALDOSITAS that are placed on the board.
+
+### Keywords
+games, logic, entertainment, mathematical recreation, concentration, memory.
+
 
 ### Requirements
 Requires memory and attention.
 
 
-### Degree of difficulty
-The degree of difficulty of the game is fixed by the number of images;
-
-### Keywords
+## Keywords
 Games, memory, concentration, logic, entertainment.
 
 ## Usage
@@ -29,7 +39,6 @@ A good starting point declaration might be:
 For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
 
 Another good resource for generating a good CSP declaration is [CSP is Awesome][csp-is-awesome]
-
 
 [phonegap-cli-url]: http://github.com/phonegap/phonegap-cli
 [cordova-app]: http://github.com/apache/cordova-app-hello-world
@@ -44,43 +53,59 @@ Another good resource for generating a good CSP declaration is [CSP is Awesome][
 
 ### Spanish
 
-## TÌtulo
+## T√≠tulo
 # MEMORIOSO
 
-## DescripciÛn
-MEMORIOSO es un juego de concentracion y memoria. Es el reemplazo mejorado de MEMORIOSO. 
-### øEn que consiste?
+## Descripci√≥n breve
+MEMORIOSO es un juego donde de debe ejercitar concentraci√≥n y memoria.
 
-#### DescripciÛn breve
-Un juego que permite entrenar la memoria y divertirse al mismo tiempo.
-
-#### DescripciÛn DETALLADA
-Es un juego y un ejercicio mental. Exige agudizar la concentraciÛn y la memoria.
-La memoria como cualquier otra capacidad se mantiene y mejora ejercitandola.
-
-### øEn que consiste?
-Existen diferentes grupos de im·genes. Tu eliges el grupo dentro del cual habr· pares de im·genes iguales que debes detectar. 
-Existen varios niveles de dificultad dados por la cantidad de im·genes que se presentan.
-La mec·nica del juego es simple, sin embargo requiere memoria para facilitar la ubicaciÛn adecuada de los pares de im·genes.
-
-### Requerimientos
-Requiere del ejercicio de la lÛgica y un mÌnimo conocimiento de aritmÈtica para ser resuelto: sumar.
-
-### Variantes
-
+## Descripci√≥n COMPLETA
+Hay un cojunto de fichas o cartas, cada una con una imagen, colocadas de forma tal que no se ve su anverso.
+Hay dos fichas de cada imagen. El juego consiste en encontrar las parejas de imagenes iguales.
+Al pulsar sobre una imagen, esta se da vuelta. Se eligen dos fichas consecutivas. 
+Si resultan ser iguales se retiran del tablero. Si son diferentes vuelven a la posicion original.
+El juego finaliza cuando se han encontrado todas las parejas.
+Existen varios niveles de dificultad dados por la cantidad de im√°genes que se presentan.
+La mec√°nica del juego es simple, sin embargo requiere memoria para facilitar la ubicaci√≥n adecuada de los pares de im√°genes.
 
 ### Grado de dificultad
-El grado de dificultad del juego queda fijado por la cantidad de BALDOSITAS; 
+El grado de dificultad del juego queda fijado por la cantidad de BALDOSITAS que se colocan sobre el tablero. 
 
 ### Palabras clave
-juegos, lÛgica, entretenimiento, recreaciÛn matem·tica, aritmÈtica.
+juegos, l√≥gica, entretenimiento, recreaci√≥n matem√°tica, concentracion, memoria.
 
 
 Espero disfruten estos entretenimientos.
 
-### Virtudes
+Clasificaci√≥n de la aplicaci√≥n: para todos los p√∫blicos.
 
-ClasificaciÛn de la aplicaciÛn: para todos los p˙blicos.
+
+## Titel
+# MEMORIOUS
+
+## Kurze Beschreibung
+MEMORIOSO ist ein Spiel, in dem Sie Konzentration und Ged√§chtnis trainieren m√ºssen.
+
+## FULL Beschreibung
+Es gibt einen Satz von Karten oder Karten mit jeweils einem Bild, das so platziert ist, dass seine Vorderseite nicht sichtbar ist.
+Es gibt zwei Registerkarten f√ºr jedes Bild. Das Spiel besteht darin, Paare gleicher Bilder zu finden.
+Wenn Sie auf ein Bild klicken, wird es umgedreht. Es werden zwei aufeinander folgende Karten ausgew√§hlt.
+Wenn sie sich als gleich herausstellen, werden sie vom Board entfernt. Wenn sie unterschiedlich sind, kehren sie zur urspr√ºnglichen Position zur√ºck.
+Das Spiel endet, wenn alle Paare gefunden wurden.
+Es gibt verschiedene Schwierigkeitsgrade, die sich aus der Anzahl der angezeigten Bilder ergeben.
+Die Spielmechanik ist einfach, erfordert jedoch ein Ged√§chtnis, um die richtige Platzierung von Bildpaaren zu erleichtern.
+
+### Schwierigkeitsgrad
+Der Schwierigkeitsgrad des Spiels wird durch die Anzahl der auf dem Spielfeld platzierten BALDOSITAS festgelegt.
+
+### Schl√ºsselw√∂rter
+Spiele, Logik, Unterhaltung, mathematische Erholung, Konzentration, Ged√§chtnis.
+
+
+Ich hoffe, Sie genie√üen diese Unterhaltungen.
+
+Klassifizierung der Anwendung: f√ºr alle Zielgruppen.
+
 
 Video en: 
 
@@ -93,7 +118,7 @@ Owned by ingverger@gmail.com
 PhoneGap (iOS / Android / Windows)
 cli-6.5.0 (4.3.1 / 6.1.2 / 4.4.3)
 
-Vinculo para habilitar la versiÛn con los verificadores.
+Vinculo para habilitar la versi√≥n con los verificadores.
 https://play.google.com/store/apps/details?id=ar.com.ingverger.sumado
 
 
@@ -101,16 +126,16 @@ version	= "1.3.1"	21/12/2018
 	Primer version para reemplazar la desarrollada con appsGeyser
 
 
-FaltarÌa una 
+Faltar√≠a una 
 - invitacion a comentar el juego
 - indicacion de ayudas mas completas para jugar
 - mejorar la distribucion de imagenes en la pantalla. Calculos proporcionales a la medida de la pantalla
 
 
-versiÛn 2.0.1		17/1/2019
-	Version propia con ajustes en el tamaÒo de pantalla
+versi√≥n 2.0.1		17/1/2019
+	Version propia con ajustes en el tama√±o de pantalla
 
-versiÛn 2.0.2		23/1/2019
+versi√≥n 2.0.2		23/1/2019
 	Ajustes menores para pasar de prueba interna a beta
 
 
