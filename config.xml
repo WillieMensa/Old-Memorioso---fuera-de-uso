@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <widget
  id = "ar.com.ingverger.memorioso"
- versionCode = "20002"
+ versionCode = "20003"
  version  = "2.0.3" >
 
  <name>MEMORIOSO</name>
