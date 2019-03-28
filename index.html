@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
 
-    <!-- Viewport meta tag is critical to have mobile browsers
-         actually report correct screen dimensions -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!-- Viewport meta tag is critical to have mobile browsers
+		 actually report correct screen dimensions -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-	<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2"	/> -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"	/> -->
 
 	<meta name="Author" content="Willie Verger">
 
@@ -34,8 +34,30 @@
 	<h2>Concentracion</h2>
 	<p>prueba.</p>
 
-	<script src="pixi.min.js"></script>
-	<script src="concentracion.js"></script>
 
+	<!-- codigo firebase para aplicaciones web -->
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBTqEXj4Fipo_acVv5ZbfYQzBWYRcCNgdM",
+			authDomain: "memorioso-3f643.firebaseapp.com",
+			databaseURL: "https://memorioso-3f643.firebaseio.com",
+			projectId: "memorioso-3f643",
+			storageBucket: "memorioso-3f643.appspot.com",
+			messagingSenderId: "533385426241"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+
+	<!-- 
+		<script src="pixi.min.js"></script>
+		Cuidado: la version 4.3.4 tiene fallas; muestra la ultima baldosita
+	 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.1/pixi.min.js"></script>
+	<!-- <script src="concentracion.min.js"></script> -->
+	<script src="concentracion.js"></script>
+.
 </body>
 </html>

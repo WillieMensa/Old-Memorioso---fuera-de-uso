@@ -1,20 +1,23 @@
 # Registro de desarrollo
 
-**version= "1.3.1"21/12/2018**
-- Primer version para reemplazar la desarrollada con appsGeyser
-
-
 Faltaria
 - invitacion a comentar el juego
 - indicacion de ayudas mas completas para jugar
-- mejorar la distribucion de imagenes en la pantalla. Calculos proporcionales a la medida de la pantalla
 
+**version 2.0.3		27/3/2019
+-	Racionalizacion de la cantidad de niveles de dificultad.
+- Correccion del problema de ocultamiento en la última baldosita
+- Correciones varias
 
-**Version 2.0.117/1/2019**
+**versi¢n 2.0.2   23/1/2019**
+- Ajustes menores para pasar de prueba interna a beta
+
+**Version 2.0.1		17/1/2019**
 - Version propia con ajustes en el tama¤o de pantalla
 
-**versi¢n 2.0.223/1/2019**
-- Ajustes menores para pasar de prueba interna a beta
+**version= "1.3.1"	21/12/2018**
+- Primer version para reemplazar la desarrollada con appsGeyser
+
 
 
 # Observaciones, correcciones, sugerencias sobre la aplicación.
@@ -42,3 +45,5 @@ Posibles mejoras para Memorioso:
 * un contador de jugadas además del tiempo
 * posibilidad de elegir diferentes figuras. Un set de figuras abstractas puede aumentar mucho la dificultad, por ejemplo"
 
+## Propias
+* Textos adaptados a varios idiomas

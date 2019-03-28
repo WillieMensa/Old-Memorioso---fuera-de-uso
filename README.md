@@ -7,12 +7,14 @@ by Willie Verger Juegos de Ingenio / Wit Games / wit Spiele
 ## Título / Titel
 # MEMORIOSO / MEMORIOUS
 
-## Descripción breve (menos de 80 caracteres)
-## Brief description  (less than 80 characters)
-## Kurze Beschreibung (weniger als 80 Zeichen).
+### Descripción breve (menos de 80 caracteres)
+### Brief description  (less than 80 characters)
+### Kurze Beschreibung (weniger als 80 Zeichen).
 
 MEMORIOSO es un juego donde de debe ejercitar concentración y memoria.
+
 MEMORIOUS is a game where you must exercise concentration and memory.
+
 MEMORIOUS ist ein Spiel, in dem Sie Konzentration und Gedächtnis trainieren müssen.
 
 
